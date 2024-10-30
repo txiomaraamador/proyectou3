@@ -9,15 +9,15 @@ def inicializar_torres(n):
 def graficar_torres(torres, n, ax):
     ax.clear()  # Limpiar el gráfico actual
     ax.set_xlim(-0.5, 2.5)  # Ancho total del gráfico
-    ax.set_ylim(0, n + 1)
+    ax.set_ylim(0, n * 0.6)  # Ajustar la altura máxima del gráfico
     ax.axis('off')
 
     # Colores y estilo para las torres y los discos
     torre_color = '#8B4513'  # Color marrón para los postes
-    disco_colores = ['#FFD700', '#FF8C00', '#FF4500', '#1E90FF', '#32CD32']  # Colores de los discos
+    disco_colores = ['#FF69B4', '#FF1493', '#DB7093', '#C71585', '#FFB6C1']  # Colores de los discos
 
     # Ajuste dinámico para el ancho y la altura de los discos
-    max_ancho = 0.5  # Ancho máximo relativo de los discos
+    max_ancho = 0.9  # Ancho máximo relativo de los discos
     alto_disco = 0.4  # Altura constante de los discos
     altura_poste = n * 0.5  # Ajustar la altura de los postes según el número de discos
 
@@ -53,7 +53,7 @@ def torres_de_hanoi(n, origen, auxiliar, destino, torres, ax):
     torres_de_hanoi(n - 1, auxiliar, origen, destino, torres, ax)
 
 # Configuración inicial
-n = 20  # Cambia el número de discos para probar
+n = 5  # Cambia el número de discos para probar
 torres = inicializar_torres(n)
 
 # Configuración de matplotlib para la visualización continua
