@@ -52,11 +52,23 @@ def torres_de_hanoi(n, origen, auxiliar, destino, torres, ax):
     graficar_torres(torres, len(torres[0]) + len(torres[1]) + len(torres[2]), ax)
     torres_de_hanoi(n - 1, auxiliar, origen, destino, torres, ax)
 
-# Configuración inicial
-n = 5  # Cambia el número de discos para probar
-torres = inicializar_torres(n)
+# Configuración inicial con interacción del usuario
+while True:
+    try:
+        n = int(input("¿Cuántos discos quieres mover? (1 o más): "))
+        if n < 1:
+            print("Por favor, ingresa un número válido (1 o más).")
+            continue
+        break
+    except ValueError:
+        print("Por favor, ingresa un número válido.")
 
-# Configuración de matplotlib para la visualización continua
+# Calcular y mostrar el número de movimientos necesarios
+movimientos = 2**n - 1
+print(f"Con {n} discos, necesitarás {movimientos} movimientos para resolverlo.")
+
+# Inicializar las torres y preparar la visualización
+torres = inicializar_torres(n)
 plt.ion()
 fig, ax = plt.subplots(figsize=(6, 4))
 
